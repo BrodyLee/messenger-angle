@@ -1,0 +1,40 @@
+.messenger-chat {
+  padding-left: 336px;
+  margin-left: 0 !important;
+  z-index: 1 !important;
+  width: 100%;
+  @include box;
+  position: relative;
+  height: 100%;
+  @media (max-width: 1024px) {
+    padding-left: 280px;
+  }
+  @media #{$tablet} {
+    padding-left: 0;
+  }
+  @media (min-width: 769px) {
+    transform: translate(0) !important;
+  }
+  &.empty {
+    background-image: url("../images/bg-empty-mess.png");
+    background-repeat:no-repeat;
+    background-position: 70% 40%;
+    background-color: #f5f7fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+&__title--empty {
+  @include opacity(0.3);
+  color: #2a324f;
+  @include  no-marg;
+  margin-top: -55px;
+  font-size: 24px;
+}
+}
+
+.user-chat-col__img {
+  height: 100%;
+  border-radius: 50%;
+}

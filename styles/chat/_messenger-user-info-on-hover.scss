@@ -1,0 +1,59 @@
+.messenger-user-info {
+  display: none;
+  width: 150px;
+  height: 237px;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0 2px 5.6px 0.4px rgba(120, 144, 156, 0.41);
+  padding: 15px 15px 0 15px;
+  position: absolute;
+  z-index: 2;
+  left: 20px;
+  top: 20px;
+  &--in-modal {
+    left: 35px;
+  }
+
+  &__outer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  &__logo {
+    cursor: pointer;
+    margin: 0;
+    position: relative;
+    width: 47px;
+    height: 47px;
+    border-radius: 50%;
+    background-color: #dde2ed;
+  }
+  &__name {
+    margin: 0;
+    margin-top: 11px;
+    color: #2a324f;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  &__list-of-info {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+  }
+  &__item-list {
+    font-size:11px;
+    color: #2a324f;
+    display: flex;
+  }
+  &__ico {
+    color: $main-color;
+    font-size: 14px;
+    margin-top: 1px;
+    margin-bottom: 15px;
+    margin-right: 12px;
+  }
+}

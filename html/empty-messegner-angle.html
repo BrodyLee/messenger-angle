@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Messenger</title>
+    <meta name="viewport" content="width=device-width, height=device-height initial-scale=1.0">
+    <link rel="stylesheet" href="../vendor/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../vendor/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="../vendor/animate.css/animate.min.css">
+    <link rel="stylesheet" href="../styles/style-messenger.css">
+    <script>
+
+        function showModalWin() {
+
+            var darkLayer = document.createElement('div');
+            darkLayer.id = 'shadow';
+            document.body.appendChild(darkLayer);
+
+            var modalWin = document.getElementById('messenger-modal');
+            modalWin.style.display = 'block';
+
+            darkLayer.onclick = function () {
+                darkLayer.parentNode.removeChild(darkLayer);
+                modalWin.style.display = 'none';
+                return false;
+            };
+        }
+
+
+        function showSidebar2() {
+            var darkLayer = document.createElement('div');
+            darkLayer.id = 'ishadow';
+            document.body.appendChild(darkLayer);
+
+            insertAfter(darkLayer, after );
+
+
+            var modalWin = document.getElementById('messenger-sidebar');
+            modalWin.style.transform = 'translate(100%)';
+            modalWin.style.transition = 'all 0.3s';
+
+
+            var contentMarg = document.getElementById('messenger-chat');
+            contentMarg.style.transform  = 'translate(280px)';
+            contentMarg.style.transition = 'all 0.3s';
+
+            darkLayer.onclick = function () {
+                darkLayer.parentNode.removeChild(darkLayer);
+                modalWin.style.transform = 'translate(0)';
+                contentMarg.style.transform  = 'translate(0)';
+                return false;
+            };
+
+        }
+
+        function insertAfter(elem, refElem) {
+            var parent = refElem.parentNode;
+            var next = refElem.nextSibling;
+            if (next) {
+                return parent.insertBefore(elem, next);
+            } else {
+                return parent.appendChild(elem);
+            }
+        }
+
+        function showModalWinMembers() {
+
+            var darkLayer = document.createElement('div');
+            darkLayer.id = 'inside-shadow';
+
+            document.body.appendChild(darkLayer);
+
+            var modalWin = document.getElementById('modal-members');
+            modalWin.style.display = 'block';
+
+            darkLayer.onclick = function () {
+                darkLayer.parentNode.removeChild(darkLayer);
+                modalWin.style.display = 'none';
+                return false;
+            };
+        }
+
+    </script>
+</head>
+<body class="undefined layout-boxed modal-open messenger-bg-none">
+
+<button onclick="showModalWin()">click to modal</button>
+
+<div class="wrapper messenger-wrapper" id="messenger-modal">
+    <header class="topnavbar-wrapper messenger-topnavbar-wrapper">
+        <nav class="navbar topnavbar messenger-navbar empty">
+            <div class="navbar-header messenger-navbar-header empty">
+                <div class="brand-logo">Messenger</div>
+            </div>
+        </nav>
+    </header>
+
+    <aside class="aside messenger-aside" id="messenger-sidebar">
+        <div class="aside-inner">
+            <nav data-sidebar-anyclick-close class="sidebar">
+                <ul class="nav messenger-nav">
+                    <li class="col-md-12 messenger-input-field">
+                        <input type="text" class=" form-control form-control-rounded" placeholder="Search">
+                    </li>
+                    <li class="col-md-12 messenger-aside-title messenger-aside-title--with-modal" onclick="showModalWinMembers()">
+                        <h5 class="pull-left">Members</h5>
+                        <div class="pull-right label label-info">0</div>
+                    </li>
+                    <li class="col-md-12 messenger-aside-title">
+                        <h5 class="pull-left">Channels<i class="icon-plus btn messenger-add-channel"></i></h5>
+                        <div class="pull-right label label-info">0</div>
+
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+
+    <section class="messenger-chat  empty" id="messenger-chat">
+        <h1 class="messenger-chat__title--empty">No Chats</h1>
+    </section>
+
+    <div class="modal-backdrop fade in"></div>
+    <div id="after"></div>
+</div>
+
+
+
+<!--modals-->
+<article class="modal modal-members" id="modal-members">
+    <section class="modal__header modal__header--small">
+        <h6 class="modal__title">Members</h6>
+        <div class="modal__ico-area">
+            <i class="fa fa-times modal__header-ico"></i>
+        </div>
+    </section>
+    <section class="modal__search-form modal__search-form--members">
+        <input type="text" class="modal__input" placeholder="Search">
+        <i class="fa fa-search modal__search-form-ico"></i>
+    </section>
+
+    <h6 class="modal-members__caption-group">
+        Unconfirmed (233)
+    </h6>
+    <article class="modal-members-list modal-members-list--small">
+        <section class="members-info">
+            <div class="members-info__outer">
+                <div class="members-info__logo">
+                    <img src="../images/user-logo.jpg" class="members-info__img" alt="">
+                </div>
+                <div class="members-info__description">
+                    <h5 class="members-info__title members-info__title--no-text">Shaun Gardner</h5>
+                </div>
+            </div>
+            <div class="members-info__icons-area">
+                <i class="fa fa-plus members-info__ico"></i>
+                <i class="fa fa-times members-info__ico"></i>
+            </div>
+        </section>
+        <section class="members-info">
+            <div class="members-info__outer">
+                <div class="members-info__logo">
+                    <img src="../images/user-logo.jpg" class="members-info__img" alt="">
+                </div>
+                <div class="members-info__description">
+                    <h5 class="members-info__title members-info__title--no-text">Shaun Gardner</h5>
+                </div>
+            </div>
+            <div class="members-info__icons-area">
+                <i class="fa fa-plus members-info__ico"></i>
+                <i class="fa fa-times members-info__ico"></i>
+            </div>
+        </section>
+        <section class="members-info">
+            <div class="members-info__outer">
+                <div class="members-info__logo">
+                    <img src="../images/user-logo.jpg" class="members-info__img" alt="">
+                </div>
+                <div class="members-info__description">
+                    <h5 class="members-info__title members-info__title--no-text">Shaun Gardnasdaddasdasdassadasder</h5>
+                </div>
+            </div>
+            <div class="members-info__icons-area">
+                <i class="fa fa-plus members-info__ico"></i>
+                <i class="fa fa-times members-info__ico"></i>
+            </div>
+        </section>
+    </article>
+
+    <h6 class="modal-members__caption-group">
+        All (233)
+    </h6>
+    <article class="modal-members-list modal-members-list--members modal-members-list--few-unconfirmed">
+        <section class="members-info">
+            <div class="members-info__outer">
+                <div class="members-info__logo">
+                    <img src="../images/user-logo.jpg" class="members-info__img" alt="">
+                    <div class="members-info__status members-info__status--online"></div>
+                </div>
+                <div class="members-info__description">
+                    <h5 class="members-info__title">Shaun Gardner</h5>
+                    <p class="members-info__overview">Silver Nes Sweet Good Luck Have Fun</p>
+                </div>
+            </div>
+            <div class="members-info__icons-area">
+                <i class="fa fa-trash members-info__ico"></i>
+            </div>
+            <section class="messenger-user-info messenger-user-info--in-modal">
+                <div class="messenger-user-info__outer">
+                    <div class="messenger-user-info__logo"><img src="../images/user-logo.jpg" class="user-chat-col__img"  alt=""></div>
+                    <h5 class="messenger-user-info__name">Rose Pantera</h5>
+                </div>
+                <ul class="messenger-user-info__list-of-info">
+                    <li class="messenger-user-info__item-list"><i class="fa fa-suitcase messenger-user-info__ico"></i>Apple Corporation</li>
+                    <li class="messenger-user-info__item-list"><i class="fa fa-globe messenger-user-info__ico"></i>USA, New York</li>
+                    <li class="messenger-user-info__item-list"><i class="fa fa-envelope messenger-user-info__ico"></i>rose@gmail.com</li>
+                    <li class="messenger-user-info__item-list"><i class="fa fa-phone messenger-user-info__ico"></i>+105050850</li>
+                </ul>
+            </section>
+        </section>
+        <section class="members-info">
+            <div class="members-info__outer">
+                <div class="members-info__logo">
+                    <img src="../images/user-logo.jpg" class="members-info__img" alt="">
+                    <div class="members-info__status members-info__status--online"></div>
+                </div>
+                <div class="members-info__description">
+                    <h5 class="members-info__title">Shaun Gardner</h5>
+                    <p class="members-info__overview">Silver Nes Sweet Good Luck Have Fun</p>
+                </div>
+            </div>
+            <div class="members-info__icons-area">
+                <i class="fa fa-trash members-info__ico"></i>
+            </div>
+        </section>
+
+        <section class="members-info">
+            <div class="members-info__outer">
+                <div class="members-info__logo">
+                    <img src="../images/user-logo.jpg" class="members-info__img" alt="">
+                    <div class="members-info__status members-info__status--online"></div>
+                </div>
+                <div class="members-info__description">
+                    <h5 class="members-info__title">Shaun Gardner</h5>
+                    <p class="members-info__overview">Silver Nes Sweet Good Luck Have Fun</p>
+                </div>
+            </div>
+            <div class="members-info__icons-area">
+                <i class="fa fa-trash members-info__ico"></i>
+            </div>
+        </section>
+        <section class="members-info">
+            <div class="members-info__outer">
+                <div class="members-info__logo">
+                    <img src="../images/user-logo.jpg" class="members-info__img" alt="">
+                    <div class="members-info__status members-info__status--online"></div>
+                </div>
+                <div class="members-info__description">
+                    <h5 class="members-info__title">Shaun Gardner</h5>
+                    <p class="members-info__overview">Silver Nes Sweet Good Luck Have Fun</p>
+                </div>
+            </div>
+            <div class="members-info__icons-area">
+                <i class="fa fa-trash members-info__ico"></i>
+            </div>
+        </section>
+        <section class="members-info">
+            <div class="members-info__outer">
+                <div class="members-info__logo">
+                    <img src="../images/user-logo.jpg" class="members-info__img" alt="">
+                    <div class="members-info__status members-info__status--online"></div>
+                </div>
+                <div class="members-info__description">
+                    <h5 class="members-info__title">Shaun Gardner</h5>
+                    <p class="members-info__overview">Silver Nes Sweet Good Luck Have Fun</p>
+                </div>
+            </div>
+            <div class="members-info__icons-area">
+                <i class="fa fa-trash members-info__ico"></i>
+            </div>
+        </section>
+
+
+    </article>
+    <section class="modal__footer modal__footer--small modal__footer--members">
+        <button class="modal__btn modal__btn--save">new member</button>
+    </section>
+</article>
+
+
+</body>
+</html>

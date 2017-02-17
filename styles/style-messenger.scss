@@ -1,0 +1,336 @@
+$big-ph:"(max-width:568px)";
+$tablet: "(max-width: 768px)";
+$desktop: "(min-width: 1024px)";
+$main-color: #23b7e5;
+
+@import "bootstrap";
+@import "app.scss";
+
+@import "mixins";
+
+@import "chat/messenger-chat";
+@import "chat/chat-messages";
+@import "chat/chat-user";
+@import "chat/messenger-user-info-on-hover";
+@import "chat/chat-user-yourself";
+@import "chat/messenger-day-separator";
+@import "chat/messenger-textarea";
+
+ @import "modals/modal-inside-messenger";
+ @import "modals/modal-confirmation";
+ @import "modals/modal-create-stream";
+ @import "modals/modal-members";
+ @import "modals/modal-members-info";
+ @import "modals/modal-stream-messenger";
+
+body {
+  font-size:16px;
+}
+
+.full-w {
+  width: 100%;
+}
+
+.no-marg {
+  @include no-marg;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 1px;
+
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(0,0,0,0.05);
+ }
+
+
+::-webkit-scrollbar-thumb {
+  height: 78px;
+  width: 10px;
+  border-radius: 10px;
+  background-color: rgba(0,0,0,0.1);
+}
+
+
+.messenger{
+&-bg-none{
+  background: transparent !important;
+}
+
+  &-wrapper {
+    display: none;
+    position: absolute;
+    overflow: hidden;
+    @include transition;
+    z-index: 3 !important;
+    width: 80% !important;
+    min-height: 50% !important;
+    height: 95%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 !important;
+    @media (max-width: 1200px) {
+      width: 90% !important;
+    }
+  }
+  &-topnavbar-wrapper {
+    width: 100% !important;
+  }
+  &-nav-wrapper {
+    @media (max-width: 500px) {
+      padding: 0 5px;
+    }
+  }
+
+  &-navbar-header {
+    @include flex-justify-align-center;
+    width: 336px !important;
+    height: 55px;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 400;
+    text-transform: uppercase;
+    
+    @media (max-width: 1024px) {
+      width: 280px !important;
+    }
+    @media (max-width: 768px) {
+      @include hide;
+    }
+    &.empty {
+      background-color: $main-color;
+    }
+  }
+  &-navmenu-ico{
+   display: none !important;
+
+    @media (max-width: 768px) {
+      display: block !important;
+    }
+  }
+
+  &-aside {
+    left: -1px !important;
+    width: 336px !important;
+    @media (max-width: 1024px) {
+      width: 280px !important;
+    }
+    @media (min-width: 769px) {
+      transform: translate(0) !important;
+    }
+    @media #{$tablet} {
+      margin-left: -280px !important;
+    }
+    .aside-inner {
+      width: 100% !important;
+    }
+    &-title {
+      color: $label-info-bg;
+      display: flex !important;
+      height: 36px;
+      position: relative;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 15px;
+      &--with-modal:hover {
+        cursor: pointer;
+        background: rgba(0,0,0,0.05);
+      }
+      h5  {
+        margin: 6.5px 0;
+      }
+
+      a {
+        padding: 0 !important;
+      }
+      .label-info {
+        margin-top: 0 !important;
+
+      }
+    }
+    .sidebar:not(.show-scrollbar) {
+      margin-right: 0 !important;
+    }
+    .aside-inner {
+      padding-top: 55px !important;
+    }
+  }
+
+  &-nav {
+    li {
+      border-left:  none !important;
+    }
+  }
+
+  &-user-col {
+    .pull-left {
+      margin-right: 9px;
+    }
+    .pull-right {
+      margin-left: 5px;
+      font-size: 12px;
+      margin-top: 8px;
+
+    }
+    .media-box-body {
+      float: left;
+    }
+    .messenger-notify-circle {
+      right: 10px;
+      top: 36px;
+    }
+    .fa-envelope {
+      float: right;
+      font-size: 14px;
+      color: #dbe0e9;
+
+    }
+  }
+  &-user-empty-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #dde2ed;
+    cursor: pointer;
+    @include flex-justify-align-center;
+  }
+
+  &-chat-description {
+    max-width: 180px;
+    white-space: nowrap;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @media (max-width: 1025px) {
+      max-width: 140px;
+
+    }
+  }
+
+
+  &-notify-circle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: red;
+    display: block;
+    z-index: 1;
+    right: 14px;
+    bottom: 24px;
+  }
+  &-add-channel {
+    margin-left: 5px;
+    padding: 0;
+  }
+
+  &-navbar {
+    margin-bottom: 0;
+    border-radius: 0 !important;
+    border: 0 !important;
+    height: 55px;
+    background-image: linear-gradient(to right, #23b7e5 0%, #51c6ea 100%);
+    a {
+      @media (max-width: 768px) {
+        color: #fff !important;
+      }
+    }
+    &-right {
+      margin-right: 0;
+      .fa {
+        font-size: 16px;
+      }
+    }
+    &.empty  {
+      background-image: none;
+      background-color: #f5f7fa;
+    }
+  }
+
+  &-navbar-nav {
+    height: 55px;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    h4 {
+      @include no-marg;
+      font-size: 16px;
+      max-width: 650px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+      @media (max-width:900px) {
+        max-width: 200px;
+      }
+      @media (max-width: 500px) {
+        max-width: 125px;
+      }
+    }
+    a {
+      @include transition;
+      padding: 0 15px !important;
+    }
+  }
+
+
+  &-dropdown-menu {
+    min-width: 115px !important;
+    text-align: center;
+
+  }
+
+  &-input-field {
+    margin-top: 15px;
+
+    border-left: none !important;
+  }
+}
+
+.nav .media-box:hover {
+
+  background-color: rgba(0,0,0,.025);
+}
+
+#shadow {
+  opacity: 0.6;
+  background-color: #3e3e3e;
+  position: fixed;
+  width: 100%;
+  top:0;
+  left: 0;
+  height: 100%;
+  z-index: 2;
+}
+
+#inside-shadow {
+  opacity: 0.6;
+  position: fixed;
+  width: 100%;
+  top:0;
+  left: 0;
+  height: 100%;
+  z-index: 3;
+  background-color: darken(#3e3e3e, 10%);
+}
+
+#ishadow {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 4;
+}
+
+.modal-backdrop {
+  position: absolute;
+  @include hide;
+}
+
+.modal {
+  display: none;
+}

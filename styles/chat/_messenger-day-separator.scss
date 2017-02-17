@@ -1,0 +1,45 @@
+
+.messenger-day {
+  top: 57px;
+  left: 0;
+  padding-top:5px;
+  padding-left: 336px;
+  @include box;
+  width: 100%;
+  background: #f1f3f7;
+  @include lg-letter-space;
+  height: 30px;
+  text-align: center;
+  z-index: 1;
+  color: #8a92ac;
+@media (max-width: 1000px) {
+  padding-left: 280px;
+}
+  @media #{$tablet} {
+    padding-left: 0;
+  }
+}
+
+.messenger-day-separator {
+  @include flex-column;
+  align-items: center;
+  h4 {
+    color: #8a92ac;
+    font-size: 18px;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    background: #f5f7fa;
+    z-index: 1;
+    margin-bottom: 20px;
+
+  }
+  em {
+    height: 1px;
+    width: 100%;
+    display: block;
+    background-color: #dfe5f0;
+    top: -29px;
+    position: relative;
+  }
+}
